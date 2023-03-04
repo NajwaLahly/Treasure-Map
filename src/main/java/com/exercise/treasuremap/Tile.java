@@ -3,8 +3,8 @@ package com.exercise.treasuremap;
 public class Tile {
     private int posX;
     private int posY;
-    private boolean isMountain;
-    private int nbrOfTreasure;
+    private boolean isMountain = false;
+    private int nbrOfTreasure = 0;
 
 
     public Tile(int posX, int posY) {
