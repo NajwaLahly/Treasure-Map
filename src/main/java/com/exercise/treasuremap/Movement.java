@@ -34,4 +34,28 @@ public class Movement {
     public boolean canMove(Tile nextTile, TreasureMap map) {
         return !nextTile.isMountain() && !nextTile.isOutOfMap(map);
     }
+
+    public void updateTreasuresInMap(Tile nextTile, TreasureMap map) {
+        Tile tileInMapTileList = map.getTileList().get(nextTile.getPosY()).get(nextTile.getPosX());
+        if (tileInMapTileList.getNbrOfTreasure() > 0) {
+            System.out.println(tileInMapTileList.getPosX());
+            tileInMapTileList.setNbrOfTreasure(tileInMapTileList.getNbrOfTreasure() - 1);
+        }
+    }
+
+    public void startGame(Player player, TreasureMap map) {
+        String directionSequence = player.getDirectionSequence();
+        Tile currentTile = player.getCurrentTile();
+        for (int i=0; i<directionSequence.length(); i++){
+            Orientation newOrientation = rotate(player.getOrientation(),
+                    Direction.valueOf(String.valueOf(directionSequence.charAt(i))));
+            player.setOrientation(newOrientation);
+            Tile potentialNextTile = getNextTile(newOrientation, currentTile);
+            if (canMove(potentialNextTile, map)){
+                updateTreasuresInMap(potentialNextTile, map);
+                player.setCurrentTile(potentialNextTile);
+                currentTile = potentialNextTile;
+            }
+        }
+    }
 }

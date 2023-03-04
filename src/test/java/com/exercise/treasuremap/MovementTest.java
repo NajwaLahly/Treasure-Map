@@ -58,4 +58,18 @@ class MovementTest {
         Assertions.assertTrue(movement.canMove(nextTile1, map));
         Assertions.assertFalse(movement.canMove(nextTile2, map));
     }
+
+    @Test
+    void updateTreasuresInTile() {
+//        Movement movement = new Movement();
+//        Tile nextTile1 = new Tile(1, 2);
+//        nextTile1.setNbrOfTreasure(2);
+//        movement.updateTreasuresInTile(nextTile1);
+//        Assertions.assertEquals(1, nextTile1.getNbrOfTreasure());
+    }
+
+    @Test
+    void startGame() {
+
+    }
 }
