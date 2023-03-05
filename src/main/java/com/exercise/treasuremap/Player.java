@@ -13,6 +13,16 @@ public class Player {
         this.directionSequence = directionSequence;
     }
 
+    public void rotate(Direction direction) {
+        int directionFactor = direction == Direction.G ? -1 : 1;
+        int newOrientationIndex = (this.orientation.ordinal() + directionFactor + Orientation.values().length) % Orientation.values().length;
+        this.orientation = Orientation.values()[newOrientationIndex];
+    }
+
+    public void move(Tile nextTile){
+        this.currentTile = nextTile;
+    }
+
     public Tile getCurrentTile() {
         return currentTile;
     }

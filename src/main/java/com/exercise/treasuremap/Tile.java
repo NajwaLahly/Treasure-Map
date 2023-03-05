@@ -4,15 +4,12 @@ public class Tile {
     private int posX;
     private int posY;
     private boolean isMountain = false;
-    private int nbrOfTreasure = 0;
+    private int nbTreasures = 0;
 
 
     public Tile(int posX, int posY) {
         this.posX = posX;
         this.posY = posY;
-    }
-    public boolean isOutOfMap(TreasureMap map){
-        return getPosX() < 0 || getPosX() > map.getWidth() || getPosY() < 0 || getPosY() > map.getHeight();
     }
 
     public int getPosX() {
@@ -39,11 +36,11 @@ public class Tile {
         isMountain = mountain;
     }
 
-    public int getNbrOfTreasure() {
-        return nbrOfTreasure;
+    public int getNbTreasures() {
+        return nbTreasures;
     }
 
-    public void setNbrOfTreasure(int nbrOfTreasure) {
-        this.nbrOfTreasure = nbrOfTreasure;
+    public void setNbTreasures(int nbTreasures) {
+        this.nbTreasures = nbTreasures;
     }
 }
