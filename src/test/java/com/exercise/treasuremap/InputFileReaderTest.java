@@ -39,24 +39,24 @@ class InputFileReaderTest {
         InputFileReader inputFileReader = new InputFileReader();
         GameData data = new GameData();
 
-        //line sarting with 'C'
+        //line starting with 'C'
         inputFileReader.processLine("C - 3 - 4", data);
         assertEquals(3, data.getMapWidth());
         assertEquals(4, data.getMapHeight());
 
-        //line sarting with 'M'
+        //line starting with 'M'
         inputFileReader.processLine("M - 1 - 0", data);
         assertEquals(1, data.getMountains().get(0)[0]);
         assertEquals(0, data.getMountains().get(0)[1]);
 
-        //line sarting with 'T'
+        //line starting with 'T'
         inputFileReader.processLine("T - 0 - 3 - 2", data);
         assertEquals(0, data.getTreasures().get(0)[0]);
         assertEquals(3, data.getTreasures().get(0)[1]);
         assertEquals(2, data.getTreasures().get(0)[2]);
 
 
-        //line sarting with 'A'
+        //line starting with 'A'
         inputFileReader.processLine("A - Lara - 1 - 1 - S - AADADAGGA", data);
         assertEquals("Lara", data.getPlayerName());
         assertEquals(1, data.getPlayerPosX());
