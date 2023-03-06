@@ -79,10 +79,6 @@ public class GameData {
         return mountains;
     }
 
-    public void setMountains(ArrayList<int[]> mountains) {
-        this.mountains = mountains;
-    }
-
     public ArrayList<int[]> getTreasures() {
         return treasures;
     }

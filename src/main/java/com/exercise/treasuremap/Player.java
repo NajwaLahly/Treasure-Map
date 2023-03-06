@@ -21,7 +21,7 @@ public class Player {
         this.orientation = Orientation.values()[newOrientationIndex];
     }
 
-    public void move(Tile nextTile){
+    public void move(Tile nextTile) {
         this.currentTile = nextTile;
     }
 
@@ -51,10 +51,6 @@ public class Player {
 
     public String getDirectionSequence() {
         return directionSequence;
-    }
-
-    public void setDirectionSequence(String directionSequence) {
-        this.directionSequence = directionSequence;
     }
 
     public int getNbCollectedTreasures() {

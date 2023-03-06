@@ -42,14 +42,6 @@ public class TreasureMap {
         return tiles[posY][posX];
     }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
     public int getHeight() {
         return height;
     }
@@ -60,9 +52,5 @@ public class TreasureMap {
 
     public Tile[][] getTiles() {
         return tiles;
-    }
-
-    public void setTiles(Tile[][] tileList) {
-        this.tiles = tileList;
     }
 }

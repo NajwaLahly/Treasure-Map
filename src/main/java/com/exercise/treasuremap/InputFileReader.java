@@ -29,11 +29,11 @@ public class InputFileReader {
                     data.setMapHeight(Integer.parseInt(splitLine[2]));
                     break;
                 case "M":
-                    int[] mountainPos =  new int[]{Integer.parseInt(splitLine[1]), Integer.parseInt(splitLine[2])};
+                    int[] mountainPos = new int[]{Integer.parseInt(splitLine[1]), Integer.parseInt(splitLine[2])};
                     data.getMountains().add(mountainPos);
                     break;
                 case "T":
-                    int[] treasure =  new int[]{Integer.parseInt(splitLine[1]), Integer.parseInt(splitLine[2]), Integer.parseInt(splitLine[3])};
+                    int[] treasure = new int[]{Integer.parseInt(splitLine[1]), Integer.parseInt(splitLine[2]), Integer.parseInt(splitLine[3])};
                     data.getTreasures().add(treasure);
                     break;
                 case "A":

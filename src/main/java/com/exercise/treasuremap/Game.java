@@ -93,20 +93,18 @@ public class Game {
         }
     }
 
-    public GameData updateGameData(GameData data) {
-        GameData outputGameData = data;
+    public void updateGameData(GameData outputGameData) {
         outputGameData.setPlayerPosX(this.player.getCurrentTile().getPosX());
         outputGameData.setPlayerPosY(this.player.getCurrentTile().getPosY());
         outputGameData.setNbCollectedTreasures(player.getNbCollectedTreasures());
         outputGameData.setOrientation(this.player.getOrientation().toString());
 
         ArrayList<int[]> treasures = outputGameData.getTreasures();
-        for (int i = 0; i < treasures.size(); i++) {
-            int nbTreasure = map.getTileFromPos(treasures.get(i)[0], treasures.get(i)[1]).getNbTreasures();
-            treasures.get(i)[2] = nbTreasure;
+        for (int[] treasure : treasures) {
+            int nbTreasure = map.getTileFromPos(treasure[0], treasure[1]).getNbTreasures();
+            treasure[2] = nbTreasure;
         }
         outputGameData.setTreasures(treasures);
-        return outputGameData;
     }
 
     public Player getPlayer() {

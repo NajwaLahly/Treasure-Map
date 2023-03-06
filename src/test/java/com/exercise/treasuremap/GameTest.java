@@ -87,7 +87,7 @@ class GameTest {
         InputFileReader inputFileReader = new InputFileReader();
         GameData gameData = inputFileReader.readFile("src/test/resources/treasure_map_input.txt");
         Game game = new Game(gameData);
-        Tile treasureTile = game.getMap().getTileFromPos(0,3);
+        Tile treasureTile = game.getMap().getTileFromPos(0, 3);
         game.updateTreasures(treasureTile);
         // Nb of treasures in (0,3) are initially 2
         Assertions.assertEquals(1, treasureTile.getNbTreasures());
@@ -108,6 +108,5 @@ class GameTest {
         Assertions.assertEquals("S", gameData.getOrientation());
         Assertions.assertEquals(0, gameData.getTreasures().get(0)[2]);
         Assertions.assertEquals(2, gameData.getTreasures().get(1)[2]);
-
     }
 }
