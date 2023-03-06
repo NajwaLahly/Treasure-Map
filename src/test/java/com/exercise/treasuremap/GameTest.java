@@ -88,9 +88,10 @@ class GameTest {
         GameData gameData = inputFileReader.readFile("src/test/resources/treasure_map_input.txt");
         Game game = new Game(gameData);
         Tile treasureTile = game.getMap().getTileFromPos(0, 3);
-        game.updateTreasures(treasureTile);
+        game.getPlayer().setCurrentTile(treasureTile);
+        game.updateTreasures();
         // Nb of treasures in (0,3) are initially 2
-        Assertions.assertEquals(1, treasureTile.getNbTreasures());
+        Assertions.assertEquals(1, game.getMap().getTileFromPos(0, 3).getNbTreasures());
         // Nb of treasures collected by the player is this tile
         Assertions.assertEquals(1, game.getPlayer().getNbCollectedTreasures());
     }

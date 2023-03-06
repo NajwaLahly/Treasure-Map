@@ -61,10 +61,11 @@ public class Game {
         return !nextTile.isMountain();
     }
 
-    public void updateTreasures(Tile nextTile) {
-        int nbTreasures = nextTile.getNbTreasures();
+    public void updateTreasures() {
+        Tile currentTile = player.getCurrentTile();
+        int nbTreasures = currentTile.getNbTreasures();
         if (nbTreasures > 0) {
-            nextTile.setNbTreasures(nbTreasures - 1);
+            currentTile.setNbTreasures(nbTreasures - 1);
             updatePlayerTreasures();
         }
     }
@@ -87,7 +88,7 @@ public class Game {
                 if (canMove(potentialNextPos)) {
                     Tile nextTile = map.getTileFromPos(potentialNextPos[0], potentialNextPos[1]);
                     player.move(nextTile);
-                    updateTreasures(nextTile);
+                    updateTreasures();
                 }
             }
         }
