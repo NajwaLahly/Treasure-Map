@@ -63,6 +63,10 @@ public class GameData {
         this.directionSequence = directionSequence;
     }
 
+    public void setMountains(ArrayList<int[]> mountains) {
+        this.mountains = mountains;
+    }
+
     public String getOrientation() {
         return orientation;
     }
