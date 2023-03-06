@@ -2,6 +2,10 @@ package com.exercise.treasuremap;
 
 import java.util.ArrayList;
 
+/**
+ * Class that represents the game data that is red from the input file
+ * that can also be exported as an output file.
+ */
 public class GameData {
     private int mapWidth;
     private int mapHeight;
@@ -10,7 +14,18 @@ public class GameData {
     private int playerPosY;
     private String directionSequence;
     private String orientation;
+    /**
+     * Defines a list of positions of mountains. Each element is an int list (int[x,y])
+     * where the first elements is the position in the X axis, and the second element
+     * is the position in the Y axis
+     */
     private ArrayList<int[]> mountains = new ArrayList<>();
+    /**
+     * Defines a list of treasures. Each element is an int list with 3 ints (int[x,y,nb]).
+     * x: denotes the position in the X axis.
+     * y: denotes the position in the Y axis.
+     * nb: denotes the number of treasures.
+     */
     private ArrayList<int[]> treasures = new ArrayList<>();
 
     private int nbCollectedTreasures = 0;

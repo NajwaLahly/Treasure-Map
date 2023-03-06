@@ -1,5 +1,8 @@
 package com.exercise.treasuremap;
 
+/**
+ * Class that represents a tile of the map. A tile is the base unit of the map (1 square).
+ */
 public class Tile {
     private int posX;
     private int posY;

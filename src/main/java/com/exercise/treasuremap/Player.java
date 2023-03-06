@@ -1,5 +1,8 @@
 package com.exercise.treasuremap;
 
+/**
+ * Class that represents the player.
+ */
 public class Player {
     private Tile currentTile;
     private String name;
@@ -15,12 +18,20 @@ public class Player {
         this.directionSequence = directionSequence;
     }
 
+    /**
+     * Rotates the player from his current orientation depending on the given direction
+     * @param direction Direction in which the player will rotate
+     */
     public void rotate(Direction direction) {
         int directionFactor = direction == Direction.G ? -1 : 1;
         int newOrientationIndex = (this.orientation.ordinal() + directionFactor + Orientation.values().length) % Orientation.values().length;
         this.orientation = Orientation.values()[newOrientationIndex];
     }
 
+    /**
+     * Moves the player to the next tile
+     * @param nextTile Next tile to be moved into
+     */
     public void move(Tile nextTile) {
         this.currentTile = nextTile;
     }

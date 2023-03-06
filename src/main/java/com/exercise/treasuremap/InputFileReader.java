@@ -5,8 +5,15 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Class used to read the input file and convert it into a GameData file.
+ */
 public class InputFileReader {
-
+    /**
+     * Reads the input file and writes data in the GameData file.
+     * @param filePath Path to the input file
+     * @return Object that represents the game data needed to initialize the game
+     */
     public GameData readFile(String filePath) {
         GameData data = new GameData();
         File file = new File(filePath);
@@ -20,6 +27,11 @@ public class InputFileReader {
         return data;
     }
 
+    /**
+     * Reads one line in the input file and writes the data extracted in the GameData object
+     * @param line Represents one line of the input file
+     * @param data Game data being written
+     */
     public void processLine(String line, GameData data) {
         if (line.charAt(0) != '#') {
             String[] splitLine = line.split(" - ");
