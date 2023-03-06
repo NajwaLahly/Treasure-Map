@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class InputFileReader {
 
-    public InputData readFile(String filePath) {
-        InputData data = new InputData();
+    public GameData readFile(String filePath) {
+        GameData data = new GameData();
         File file = new File(filePath);
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
             String line;
@@ -20,7 +20,7 @@ public class InputFileReader {
         return data;
     }
 
-    public void processLine(String line, InputData data) {
+    public void processLine(String line, GameData data) {
         if (line.charAt(0) != '#') {
             String[] splitLine = line.split(" - ");
             switch (splitLine[0]) {
@@ -38,9 +38,9 @@ public class InputFileReader {
                     break;
                 case "A":
                     data.setPlayerName(splitLine[1]);
-                    data.setPlayerInitPosX(Integer.parseInt(splitLine[2]));
-                    data.setPlayerInitPosY(Integer.parseInt(splitLine[3]));
-                    data.setInitOrientation(splitLine[4]);
+                    data.setPlayerPosX(Integer.parseInt(splitLine[2]));
+                    data.setPlayerPosY(Integer.parseInt(splitLine[3]));
+                    data.setOrientation(splitLine[4]);
                     data.setDirectionSequence(splitLine[5]);
                     break;
             }

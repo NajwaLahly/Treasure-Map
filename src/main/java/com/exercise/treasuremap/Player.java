@@ -6,6 +6,8 @@ public class Player {
     private Orientation orientation;
     private String directionSequence;
 
+    private int nbCollectedTreasures = 0;
+
     public Player(String name, Tile currentTile, Orientation orientation, String directionSequence) {
         this.currentTile = currentTile;
         this.name = name;
@@ -53,5 +55,13 @@ public class Player {
 
     public void setDirectionSequence(String directionSequence) {
         this.directionSequence = directionSequence;
+    }
+
+    public int getNbCollectedTreasures() {
+        return nbCollectedTreasures;
+    }
+
+    public void setNbCollectedTreasures(int nbCollectedTreasures) {
+        this.nbCollectedTreasures = nbCollectedTreasures;
     }
 }

@@ -9,12 +9,12 @@ class InputFileReaderTest {
     @Test
     void readFile() {
         InputFileReader inputFileReader = new InputFileReader();
-        InputData data = inputFileReader.readFile("src/test/resources/treasure_map_input.txt");
+        GameData data = inputFileReader.readFile("src/test/resources/treasure_map_input.txt");
         assertEquals(3, data.getMapWidth());
         assertEquals(4, data.getMapHeight());
-        assertEquals(1, data.getPlayerInitPosX());
-        assertEquals(1, data.getPlayerInitPosY());
-        assertEquals("S", data.getInitOrientation());
+        assertEquals(1, data.getPlayerPosX());
+        assertEquals(1, data.getPlayerPosY());
+        assertEquals("S", data.getOrientation());
         assertEquals("AADADAGGA", data.getDirectionSequence());
         assertEquals("Lara", data.getPlayerName());
 
@@ -36,7 +36,7 @@ class InputFileReaderTest {
     @Test
     void processLine() {
         InputFileReader inputFileReader = new InputFileReader();
-        InputData data = new InputData();
+        GameData data = new GameData();
 
         //line sarting with 'C'
         inputFileReader.processLine("C - 3 - 4", data);
@@ -58,9 +58,9 @@ class InputFileReaderTest {
         //line sarting with 'A'
         inputFileReader.processLine("A - Lara - 1 - 1 - S - AADADAGGA", data);
         assertEquals("Lara", data.getPlayerName());
-        assertEquals(1, data.getPlayerInitPosX());
-        assertEquals(1, data.getPlayerInitPosY());
-        assertEquals("S", data.getInitOrientation());
+        assertEquals(1, data.getPlayerPosX());
+        assertEquals(1, data.getPlayerPosY());
+        assertEquals("S", data.getOrientation());
         assertEquals("AADADAGGA", data.getDirectionSequence());
     }
 }

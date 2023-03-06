@@ -1,19 +1,19 @@
 package com.exercise.treasuremap;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
-public class InputData {
+public class GameData {
     private int mapWidth;
     private int mapHeight;
     private String playerName;
-    private int playerInitPosX;
-    private int playerInitPosY;
+    private int playerPosX;
+    private int playerPosY;
     private String directionSequence;
-    private String initOrientation;
+    private String orientation;
     private ArrayList<int[]> mountains = new ArrayList<>();
     private ArrayList<int[]> treasures = new ArrayList<>();
+
+    private int nbCollectedTreasures = 0;
 
     public int getMapWidth() {
         return mapWidth;
@@ -39,20 +39,20 @@ public class InputData {
         this.playerName = playerName;
     }
 
-    public int getPlayerInitPosX() {
-        return playerInitPosX;
+    public int getPlayerPosX() {
+        return playerPosX;
     }
 
-    public void setPlayerInitPosX(int playerInitPosX) {
-        this.playerInitPosX = playerInitPosX;
+    public void setPlayerPosX(int playerPosX) {
+        this.playerPosX = playerPosX;
     }
 
-    public int getPlayerInitPosY() {
-        return playerInitPosY;
+    public int getPlayerPosY() {
+        return playerPosY;
     }
 
-    public void setPlayerInitPosY(int playerInitPosY) {
-        this.playerInitPosY = playerInitPosY;
+    public void setPlayerPosY(int playerPosY) {
+        this.playerPosY = playerPosY;
     }
 
     public String getDirectionSequence() {
@@ -63,12 +63,12 @@ public class InputData {
         this.directionSequence = directionSequence;
     }
 
-    public String getInitOrientation() {
-        return initOrientation;
+    public String getOrientation() {
+        return orientation;
     }
 
-    public void setInitOrientation(String initOrientation) {
-        this.initOrientation = initOrientation;
+    public void setOrientation(String orientation) {
+        this.orientation = orientation;
     }
 
     public ArrayList<int[]> getMountains() {
@@ -85,5 +85,13 @@ public class InputData {
 
     public void setTreasures(ArrayList<int[]> treasures) {
         this.treasures = treasures;
+    }
+
+    public int getNbCollectedTreasures() {
+        return nbCollectedTreasures;
+    }
+
+    public void setNbCollectedTreasures(int nbCollectedTreasures) {
+        this.nbCollectedTreasures = nbCollectedTreasures;
     }
 }
