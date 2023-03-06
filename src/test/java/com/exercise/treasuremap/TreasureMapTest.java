@@ -28,8 +28,8 @@ class TreasureMapTest {
         mountains.add(mountainPos);
         map.setMountains(mountains);
         // Test tile in pos (0,1) with a mountain
-        assertEquals(true, map.getTileFromPos(0, 1).isMountain());
+        assertTrue(map.getTileFromPos(0, 1).isMountain());
         // Test tile in pos (1,2) with no mountain
-        assertEquals(false, map.getTileFromPos(1, 2).isMountain());
+        assertFalse(map.getTileFromPos(1, 2).isMountain());
     }
 }
