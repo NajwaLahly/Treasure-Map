@@ -6,7 +6,7 @@ import com.exercise.treasuremap.OutputFileWriter;
 public class Main {
     public static void main(String[] args) {
         InputFileReader inputFileReader = new InputFileReader();
-        GameData gameData = inputFileReader.readFile("src/test/resources/treasure_map_input.txt");
+        GameData gameData = inputFileReader.readFile("src/main/resources/treasure_map_input.txt");
         Game game = new Game(gameData);
         game.start();
         game.updateGameData(gameData);
