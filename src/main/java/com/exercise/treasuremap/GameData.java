@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class that represents the game data that is red from the input file
+ * Class that represents the game data that is read from the input file
  * that can also be exported as an output file.
  */
 public class GameData {

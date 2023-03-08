@@ -56,6 +56,7 @@ class TreasureMap {
         for (Player player : players) {
             Tile tile = getTileFromPos(player.getCurrentTile().getPosX(), player.getCurrentTile().getPosY());
             tile.setOccupied(true);
+            player.setCurrentTile(tile);
         }
     }
 

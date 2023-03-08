@@ -90,4 +90,12 @@ public class Player {
     public int getNbCollectedTreasures() {
         return nbCollectedTreasures;
     }
+
+    public void setNbCollectedTreasures(int nbCollectedTreasures) {
+        this.nbCollectedTreasures = nbCollectedTreasures;
+    }
+
+    public void setCurrentTile(Tile currentTile) {
+        this.currentTile = currentTile;
+    }
 }

@@ -1,5 +1,8 @@
 package com.exercise.treasuremap;
 
+/**
+ * Represents a mountain
+ */
 public class Mountain {
     private int posX;
     private int posY;

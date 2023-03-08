@@ -43,18 +43,20 @@ public class OutputFileWriter {
      */
     private void writeData(GameData gameData, String filePath) {
         try (FileWriter fw = new FileWriter(filePath)) {
-            fw.write("C" + FILE_SEPARATOR + gameData.getMap().getWidth() + FILE_SEPARATOR + gameData.getMap().getHeight()
+            fw.write("C" + FILE_SEPARATOR + gameData.getMap().getWidth() +
+                    FILE_SEPARATOR + gameData.getMap().getHeight()
                     + LINE_BREAK);
             ArrayList<Mountain> mountains = gameData.getMountains();
             for (Mountain mountain : mountains) {
-                fw.write("M" + FILE_SEPARATOR + mountain.getPosX() + FILE_SEPARATOR + mountain.getPosY()
-                        + LINE_BREAK);
+                fw.write("M" + FILE_SEPARATOR + mountain.getPosX() + FILE_SEPARATOR +
+                        mountain.getPosY() + LINE_BREAK);
             }
             ArrayList<Treasure> treasures = gameData.getTreasures();
             for (Treasure treasure : treasures) {
                 if (treasure.getNbTreasures() > 0)
-                    fw.write("T" + FILE_SEPARATOR + treasure.getPosX() + FILE_SEPARATOR + treasure.getPosY() +
-                            FILE_SEPARATOR + treasure.getNbTreasures() + LINE_BREAK);
+                    fw.write("T" + FILE_SEPARATOR + treasure.getPosX() +
+                            FILE_SEPARATOR + treasure.getPosY() + FILE_SEPARATOR +
+                            treasure.getNbTreasures() + LINE_BREAK);
             }
             List<Player> players = gameData.getPlayers();
             for (Player player: players) {

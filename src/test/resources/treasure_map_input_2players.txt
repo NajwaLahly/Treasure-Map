@@ -1,0 +1,5 @@
+C - 3 - 4
+M - 2 - 1
+T - 0 - 1 - 2
+A - Lara - 0 - 0 - S - AGAA
+A - Xena - 1 - 1 - O - AGAAAA

@@ -1,5 +1,8 @@
 package com.exercise.treasuremap;
 
+/**
+ * Represents a treasure
+ */
 public class Treasure {
     private int posX;
     private int posY;

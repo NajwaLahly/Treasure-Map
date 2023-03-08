@@ -10,7 +10,7 @@ The map contains mountains that block player's movement, and treasures that he c
 
 To run this application:
 - Change the input file: `src/main/resources/treasure_map_input.txt`. The file contains initially the example provided in the exercises' pdf.
-- Run `main.java` to start the game.
+- Run `Application.java` to start the game.
 - The results are stored in: `src/main/resources/treasure_map_output.txt`.
 
 

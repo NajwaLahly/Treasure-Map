@@ -1,4 +1,7 @@
-package com.exercise.treasuremap;
+import com.exercise.treasuremap.Game;
+import com.exercise.treasuremap.GameData;
+import com.exercise.treasuremap.InputFileReader;
+import com.exercise.treasuremap.OutputFileWriter;
 
 public class Application {
     public static void main(String[] args) {

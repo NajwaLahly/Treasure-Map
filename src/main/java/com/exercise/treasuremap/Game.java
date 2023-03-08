@@ -30,7 +30,7 @@ public class Game {
     /**
      * Initialize the map layout and tiles
      *
-     * @param data Data red from the input file that is needed to initialize the game
+     * @param data Data read from the input file that is needed to initialize the game
      */
     private void initMap(GameData data) {
         map = data.getMap();
@@ -39,6 +39,10 @@ public class Game {
         map.setPlayers(data.getPlayers());
     }
 
+    /**
+     * Initialise players in game
+     * @param data
+     */
     private void initPlayers(GameData data) {
         this.players = data.getPlayers();
     }
@@ -64,7 +68,8 @@ public class Game {
     }
 
     /**
-     * Updates the number of treasures in the current tile of the player
+     * Updates treasures in current tile and player
+     * @param player moving player
      */
     public void updateTreasures(Player player) {
         Tile currentTile = player.getCurrentTile();
@@ -76,6 +81,10 @@ public class Game {
         }
     }
 
+    /**
+     *
+     * @return max length of all players directionSequences
+     */
     private int getMaxGameTurns() {
         return this.players.stream()
                 .mapToInt(player -> player.getDirectionSequence().length())
