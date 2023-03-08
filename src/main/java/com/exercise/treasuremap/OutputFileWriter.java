@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.exercise.treasuremap.Constants.FILE_SEPARATOR;
 import static com.exercise.treasuremap.Constants.LINE_BREAK;
@@ -42,22 +43,28 @@ public class OutputFileWriter {
      */
     private void writeData(GameData gameData, String filePath) {
         try (FileWriter fw = new FileWriter(filePath)) {
-            fw.write("C" + FILE_SEPARATOR + gameData.getMapWidth() + FILE_SEPARATOR + gameData.getMapHeight()
+            fw.write("C" + FILE_SEPARATOR + gameData.getMap().getWidth() + FILE_SEPARATOR + gameData.getMap().getHeight()
                     + LINE_BREAK);
-            ArrayList<int[]> mountains = gameData.getMountains();
-            for (int[] mountain : mountains) {
-                fw.write("M" + FILE_SEPARATOR + mountain[0] + FILE_SEPARATOR + mountain[1]
+            ArrayList<Mountain> mountains = gameData.getMountains();
+            for (Mountain mountain : mountains) {
+                fw.write("M" + FILE_SEPARATOR + mountain.getPosX() + FILE_SEPARATOR + mountain.getPosY()
                         + LINE_BREAK);
             }
-            ArrayList<int[]> treasures = gameData.getTreasures();
-            for (int[] treasure : treasures) {
-                if (treasure[2] > 0)
-                    fw.write("T" + FILE_SEPARATOR + treasure[0] + FILE_SEPARATOR + treasure[1] +
-                            FILE_SEPARATOR + treasure[2] + LINE_BREAK);
+            ArrayList<Treasure> treasures = gameData.getTreasures();
+            for (Treasure treasure : treasures) {
+                if (treasure.getNbTreasures() > 0)
+                    fw.write("T" + FILE_SEPARATOR + treasure.getPosX() + FILE_SEPARATOR + treasure.getPosY() +
+                            FILE_SEPARATOR + treasure.getNbTreasures() + LINE_BREAK);
             }
-            fw.write("A" + FILE_SEPARATOR + gameData.getPlayerName() + FILE_SEPARATOR + gameData.getPlayerPosX() +
-                    FILE_SEPARATOR + gameData.getPlayerPosY() + FILE_SEPARATOR + gameData.getOrientation() + FILE_SEPARATOR +
-                    gameData.getNbCollectedTreasures());
+            List<Player> players = gameData.getPlayers();
+            for (Player player: players) {
+                fw.write("A" + FILE_SEPARATOR + player.getName() +
+                        FILE_SEPARATOR + player.getCurrentTile().getPosX() +
+                        FILE_SEPARATOR + player.getCurrentTile().getPosY() +
+                        FILE_SEPARATOR + player.getOrientation() + FILE_SEPARATOR +
+                        player.getNbCollectedTreasures() + LINE_BREAK);
+            };
+
 
         } catch (IOException e) {
             e.printStackTrace();

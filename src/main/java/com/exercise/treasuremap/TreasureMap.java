@@ -1,6 +1,7 @@
 package com.exercise.treasuremap;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class that represents the map of the game
@@ -34,10 +35,10 @@ class TreasureMap {
      * Initializes the treasures on the map
      * @param treasures List of treasures data to be used for the initialization
      */
-    public void setTreasures(ArrayList<int[]> treasures) {
-        for (int[] treasure : treasures) {
-            Tile treasureTile = getTileFromPos(treasure[0], treasure[1]);
-            treasureTile.setNbTreasures(treasure[2]);
+    public void setTreasures(ArrayList<Treasure> treasures) {
+        for (Treasure treasure : treasures) {
+            Tile treasureTile = getTileFromPos(treasure.getPosX(), treasure.getPosY());
+            treasureTile.setTreasure(treasure);
         }
     }
 
@@ -45,10 +46,16 @@ class TreasureMap {
      * Initializes the mountains on the map
      * @param mountains List of mountains positions
      */
-    public void setMountains(ArrayList<int[]> mountains) {
-        for (int[] mountain : mountains) {
-            Tile tile = getTileFromPos(mountain[0], mountain[1]);
+    public void setMountains(ArrayList<Mountain> mountains) {
+        for (Mountain mountain : mountains) {
+            Tile tile = getTileFromPos(mountain.getPosX(), mountain.getPosY());
             tile.setMountain(true);
+        }
+    }
+    public void setPlayers(List<Player> players) {
+        for (Player player : players) {
+            Tile tile = getTileFromPos(player.getCurrentTile().getPosX(), player.getCurrentTile().getPosY());
+            tile.setOccupied(true);
         }
     }
 

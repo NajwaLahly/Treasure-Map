@@ -37,23 +37,22 @@ public class InputFileReader {
             String[] splitLine = line.split(" - ");
             switch (splitLine[0]) {
                 case "C":
-                    data.setMapWidth(Integer.parseInt((splitLine[1])));
-                    data.setMapHeight(Integer.parseInt(splitLine[2]));
+                    data.setMap(new TreasureMap(Integer.parseInt((splitLine[1])), Integer.parseInt(splitLine[2])));
                     break;
                 case "M":
-                    int[] mountainPos = new int[]{Integer.parseInt(splitLine[1]), Integer.parseInt(splitLine[2])};
-                    data.getMountains().add(mountainPos);
+                    Mountain mountain = new Mountain(Integer.parseInt(splitLine[1]), Integer.parseInt(splitLine[2]));
+                    data.getMountains().add(mountain);
                     break;
                 case "T":
-                    int[] treasure = new int[]{Integer.parseInt(splitLine[1]), Integer.parseInt(splitLine[2]), Integer.parseInt(splitLine[3])};
+                    Treasure treasure = new Treasure(Integer.parseInt(splitLine[1]), Integer.parseInt(splitLine[2]), Integer.parseInt(splitLine[3]));
                     data.getTreasures().add(treasure);
                     break;
                 case "A":
-                    data.setPlayerName(splitLine[1]);
-                    data.setPlayerPosX(Integer.parseInt(splitLine[2]));
-                    data.setPlayerPosY(Integer.parseInt(splitLine[3]));
-                    data.setOrientation(splitLine[4]);
-                    data.setDirectionSequence(splitLine[5]);
+                    Player player = new Player(splitLine[1],
+                            new Tile(Integer.parseInt(splitLine[2]), Integer.parseInt(splitLine[3])),
+                            Orientation.valueOf(splitLine[4]),
+                            splitLine[5]);
+                    data.getPlayers().add(player);
                     break;
             }
         }

@@ -33,15 +33,42 @@ public class Player {
      * @param nextTile Next tile to be moved into
      */
     public void move(Tile nextTile) {
+        this.currentTile.setOccupied(false);
         this.currentTile = nextTile;
+        this.currentTile.setOccupied(true);
+    }
+
+    /**
+     * @return the next position of the player
+     */
+    public int[] getNextPos() {
+        int[] nextPos = new int[]{this.currentTile.getPosX(), this.currentTile.getPosY()};
+        switch (this.orientation) {
+            case E:
+                nextPos[0] += 1;
+                break;
+            case N:
+                nextPos[1] -= 1;
+                break;
+            case O:
+                nextPos[0] -= 1;
+                break;
+            case S:
+                nextPos[1] += 1;
+                break;
+        }
+        return nextPos;
+    }
+
+    /**
+     * Updates the number of treasures held by the player
+     */
+    public void updateTreasures() {
+        this.nbCollectedTreasures += 1 ;
     }
 
     public Tile getCurrentTile() {
         return currentTile;
-    }
-
-    public void setCurrentTile(Tile currentTile) {
-        this.currentTile = currentTile;
     }
 
     public String getName() {
@@ -62,9 +89,5 @@ public class Player {
 
     public int getNbCollectedTreasures() {
         return nbCollectedTreasures;
-    }
-
-    public void setNbCollectedTreasures(int nbCollectedTreasures) {
-        this.nbCollectedTreasures = nbCollectedTreasures;
     }
 }
