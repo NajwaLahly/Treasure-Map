@@ -1,9 +1,6 @@
-import com.exercise.treasuremap.Game;
-import com.exercise.treasuremap.GameData;
-import com.exercise.treasuremap.InputFileReader;
-import com.exercise.treasuremap.OutputFileWriter;
+package com.exercise.treasuremap;
 
-public class Main {
+public class Application {
     public static void main(String[] args) {
         InputFileReader inputFileReader = new InputFileReader();
         GameData gameData = inputFileReader.readFile("src/main/resources/treasure_map_input.txt");
