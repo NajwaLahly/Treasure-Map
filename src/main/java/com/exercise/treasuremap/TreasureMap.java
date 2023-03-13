@@ -52,6 +52,11 @@ class TreasureMap {
             tile.setMountain(true);
         }
     }
+
+    /**
+     * Marks players' tiles as occupied
+     * @param players
+     */
     public void setPlayers(List<Player> players) {
         for (Player player : players) {
             Tile tile = getTileFromPos(player.getCurrentTile().getPosX(), player.getCurrentTile().getPosY());
